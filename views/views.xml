@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        <!-- Acciones -->
+        <record model="ir.actions.act_window" id="action_planeok_aeroport_tree">
+            <field name="name">Aeroport</field>
+            <field name="res_model">planeok.aeroport</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_planeok_vol_tree">
+            <field name="name">Vol</field>
+            <field name="res_model">planeok.vol</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_planeok_avio_tree">
+            <field name="name">Avio</field>
+            <field name="res_model">planeok.avio</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_planeok_pilot_tree">
+            <field name="name">Pilot</field>
+            <field name="res_model">planeok.pilot</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem name="Plane" id="plane_menu1" />
+        <menuitem name="Aeroport" parent="plane_menu1" id="plane_menu1_1" action="action_planeok_aeroport_tree" />	
+        <menuitem name="Vol" parent="plane_menu1" id="plane_menu1_2" action="action_planeok_vol_tree" />	
+        <menuitem name="Avio" parent="plane_menu1" id="plane_menu1_3" action="action_planeok_avio_tree" />	
+        <menuitem name="Avio" parent="plane_menu1" id="plane_menu1_4" action="action_planeok_pilot_tree" />		
+
+        <!-- Vistas tree -->
+        <record model="ir.ui.view" id="view_planeok_aeroport_tree">
+            <field name="name">planeok_aeroport</field>
+            <field name="model">planeok.aeroport</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Aeroport">
+                    <field name="codi"/>
+                    <field name="nom"/>
+                    <field name="ciutat"/>
+                    <field name="pais"/>
+                    <field name="latitud"/>
+                    <field name="longuitud"/>					
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_planeok_vol_tree">
+            <field name="name">planeok_vol</field>
+            <field name="model">planeok.vol</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Vol">
+                    <field name="codi"/>
+                    <field name="passatgers"/>
+                    <field name="dataSortida"/>
+                    <field name="dataArrivada"/>				
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_planeok_avio_tree">
+            <field name="name">planeok_avio</field>
+            <field name="model">planeok.avio</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Avio">
+                    <field name="codi"/>
+                    <field name="marca"/>
+                    <field name="model"/>				
+                    <field name="maxVel"/>				
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_planeok_pilot_tree">
+            <field name="name">planeok_pilot</field>
+            <field name="model">planeok.pilot</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Pilot">
+                    <field name="codi"/>
+                    <field name="nom"/>
+                    <field name="cognoms"/>				
+                    <field name="nif"/>
+                    <field name="telf"/>				
+                    <field name="email"/>			
+                </tree>
+            </field>
+        </record>
+	</data>
+</odoo>
