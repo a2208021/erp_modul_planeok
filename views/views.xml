@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
+        <!-- Vista Form -->
+        <record model="ir.ui.view" id="view_planeok_vol_form">
+            <field name="name">planeok.vol.form</field>
+            <field name="model">planeok.vol</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Vol">
+                    <sheet>
+                        <group>
+                            <field name="codi"/>
+                            <field name="passatgers"/>
+                            <field name="dataSortida"/>
+                            <field name="dataArrivada"/>
+                            <field name="avio_id"/>			
+                            <field name="pilot_id"/>	
+                            <field name="aeroport_desti_id"/>	
+                            <field name="aeroport_origen_id"/>	
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
         <!-- Acciones -->
         <record model="ir.actions.act_window" id="action_planeok_aeroport_tree">
             <field name="name">Aeroport</field>
@@ -22,12 +47,20 @@
             <field name="res_model">planeok.pilot</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_planeok_vol_form">
+            <field name="name">Formulari de vol</field>
+            <field name="res_model">planeok.vol</field>
+            <field name="view_mode">form</field>
+        </record>
+
         <!-- Menu -->
         <menuitem name="Plane" id="plane_menu1" />
         <menuitem name="Aeroport" parent="plane_menu1" id="plane_menu1_1" action="action_planeok_aeroport_tree" />	
         <menuitem name="Vol" parent="plane_menu1" id="plane_menu1_2" action="action_planeok_vol_tree" />	
         <menuitem name="Avio" parent="plane_menu1" id="plane_menu1_3" action="action_planeok_avio_tree" />	
-        <menuitem name="Avio" parent="plane_menu1" id="plane_menu1_4" action="action_planeok_pilot_tree" />		
+        <menuitem name="Pilot" parent="plane_menu1" id="plane_menu1_4" action="action_planeok_pilot_tree" />	
+        <!-- Añadimos al menu la vista form -->
+        <menuitem name="Formulari de vol" parent="plane_menu1" id="plane_menu1_5" action="action_planeok_vol_form"/>
 
         <!-- Vistas tree -->
         <record model="ir.ui.view" id="view_planeok_aeroport_tree">
@@ -55,7 +88,11 @@
                     <field name="codi"/>
                     <field name="passatgers"/>
                     <field name="dataSortida"/>
-                    <field name="dataArrivada"/>				
+                    <field name="dataArrivada"/>	
+                    <field name="avio_id"/>			
+                    <field name="pilot_id"/>	
+                    <field name="aeroport_desti_id"/>	
+                    <field name="aeroport_origen_id"/>	
                 </tree>
             </field>
         </record>
@@ -69,7 +106,7 @@
                     <field name="codi"/>
                     <field name="marca"/>
                     <field name="model"/>				
-                    <field name="maxVel"/>				
+                    <field name="maxVel"/>			
                 </tree>
             </field>
         </record>
